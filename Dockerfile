@@ -23,9 +23,15 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+RUN add-apt-repository \
+   "deb http://apt.kubernetes.io/ \
+   kubernetes-xenial \
+   main"
+
 RUN apt-get update -qq
 
-RUN apt-get install docker-ce=17.03.2~ce-0~debian-stretch -y
+RUN apt-get install docker-ce=17.03.2~ce-0~debian-stretch kubectl -y
 
 RUN usermod -aG docker jenkins
 
