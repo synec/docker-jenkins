@@ -1,21 +1,13 @@
-FROM jenkins/jenkins
+FROM jenkins/jenkins:slim
 
 LABEL MAINTAINER="Daniel Grabert <docker@synec.de>"
 
 USER root
 
-# Update apt database
-RUN apt-get update
-# Perform dist-upgrade
-RUN apt-get -y dist-upgrade
+RUN apt update
 
-# Install deps for building nvm
-RUN apt-get install -y rsync wget build-essential
+RUN apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium
 
-USER root
-
-RUN apt-get update -qq \
-    && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 RUN add-apt-repository \
@@ -29,9 +21,9 @@ RUN add-apt-repository \
    kubernetes-xenial \
    main"
 
-RUN apt-get update -qq
+RUN apt update
 
-RUN apt-get install docker-ce=17.03.2~ce-0~debian-stretch kubectl -y
+RUN apt install docker-ce=17.03.2~ce-0~debian-stretch kubectl -y
 
 RUN usermod -aG docker jenkins
 
