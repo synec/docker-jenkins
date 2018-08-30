@@ -15,7 +15,7 @@ RUN apt-get install -y rsync wget build-essential
 USER root
 
 RUN apt-get update -qq \
-    && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common 
+    && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 RUN add-apt-repository \
@@ -34,5 +34,7 @@ RUN apt-get update -qq
 RUN apt-get install docker-ce=17.03.2~ce-0~debian-stretch kubectl -y
 
 RUN usermod -aG docker jenkins
+
+ENV CHROME_BIN /usr/bin/chromium
 
 USER jenkins
