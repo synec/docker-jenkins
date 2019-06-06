@@ -23,7 +23,7 @@ RUN add-apt-repository \
 
 RUN apt update
 
-RUN apt install docker-ce=17.03.2~ce-0~debian-stretch kubectl -y
+RUN apt install docker-ce=18.06.3~ce~3-0~debian kubectl -y
 
 RUN usermod -aG docker jenkins
 
