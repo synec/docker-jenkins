@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:slim
+FROM jenkins/jenkins:lts
 
 LABEL MAINTAINER="Daniel Grabert <docker@synec.de>"
 
