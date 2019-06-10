@@ -6,7 +6,7 @@ USER root
 
 RUN apt update
 
-RUN apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium
+RUN apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium rsync
 
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
