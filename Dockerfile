@@ -15,6 +15,10 @@ RUN apt update
 
 RUN apt install kubectl -y
 
+RUN groupadd -g 999 docker
+
+RUN usermod -a -G docker jenkins
+
 # RUN usermod -aG docker jenkins
 
 ENV CHROME_BIN /usr/bin/chromium
