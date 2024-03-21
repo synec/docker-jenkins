@@ -1,6 +1,14 @@
-# docker-nvm-node
+# synec/docker-jenkins
 
-This [Docker](https://www.docker.com) image installs [nodejs](https://nodejs.org)
+This docker image extends `jenkins/jenkins:jdk17` and adds a few things for testing and deployment
 
-
+  - apt-transport-https 
+  - ca-certificates 
+  - curl 
+  - gnupg2 
+  - software-properties-common 
+  - chromium 
+  - rsync 
+  - gettext-base
+  - kubectl
 
