@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:jdk11
+FROM jenkins/jenkins:jdk17
 
 LABEL MAINTAINER="Daniel Grabert <docker@synec.de>"
 
@@ -8,12 +8,7 @@ RUN apt --allow-releaseinfo-change-suite update
 
 RUN apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common chromium rsync gettext-base
 
-RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
-
-RUN apt update
-
-RUN apt install kubectl -y
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
 # RUN groupadd docker
 
