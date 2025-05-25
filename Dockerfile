@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:jdk17
+FROM jenkins/jenkins:jdk21
 
 LABEL MAINTAINER="Daniel Grabert <docker@synec.de>"
 
