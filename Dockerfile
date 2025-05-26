@@ -14,9 +14,9 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 RUN mv kubectl /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/kubectl
 
-# RUN groupadd docker
+RUN groupadd -g 988 docker
 
-RUN usermod -a -G 988 jenkins
+RUN usermod -aG docker jenkins
 
 ENV CHROME_BIN /usr/bin/chromium
 
