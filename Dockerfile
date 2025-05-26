@@ -16,7 +16,7 @@ RUN chmod +x /usr/local/bin/kubectl
 
 # RUN groupadd docker
 
-RUN usermod -a -G 999 jenkins
+RUN usermod -a -G 988 jenkins
 
 ENV CHROME_BIN /usr/bin/chromium
 
